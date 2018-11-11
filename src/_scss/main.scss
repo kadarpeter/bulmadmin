@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+// Custom Colors
+$background--light: #fcfdff;
+$background--dark:  #2f3453; //2b2e40
+
+
+// Update Bulma's global variables
+$family-sans-serif: "Open Sans", sans-serif !default;
+$family-headings: "Barlow Semi Condensed", $family-sans-serif !default;
+$weight-light: 200 !default
+
+// Update some of Bulma's component variables
+$body-background-color: $background--light;
+//$control-border-width: 2px;
+//$input-border-color: transparent;
+$input-shadow: none;
+
+@import "vendors";
+@import "dev/grid-overlay";
+
+// Layouts
+@import "layout/page";
+
+// Components
+@import "components/fieldset";

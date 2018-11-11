@@ -1,0 +1,133 @@
+/* Settings */
+:root {
+  --grid-overlay__bg--xs: hsla(4, 48%, 74%, .25);
+  --grid-overlay__bg--sm: hsla(178, 52%, 58%, .25);
+  --grid-overlay__bg--md: hsla(204, 80%, 72%, .25);
+  --grid-overlay__bg--lg: hsla(286, 51%, 44%, .12);
+  --grid-overlay__bg--xl: hsla(40, 95%, 34%, .12);
+
+  --grid-overlay__color--xs: hsla(4, 48%, 74%, .75);
+  --grid-overlay__color--sm: hsla(178, 52%, 58%, .75);
+  --grid-overlay__color--md: hsla(204, 80%, 72%, .75);
+  --grid-overlay__color--lg: hsla(286, 51%, 44%, .75);
+  --grid-overlay__color--xl: hsla(40, 95%, 34%, .75);
+
+  --gutter: 24px;
+  --offset: calc(var(--gutter) / 2);
+  --grid-overlay__color: var(--grid-overlay__color--xs);
+  --columns: 1;
+  --baseline: 1.5rem;
+  --baseline-shift: 0;
+  --background-color: var(--grid-overlay__bg--xs);
+  --media-query: 'extra small (xs)';
+
+  --mobile: 720px;
+  --tablet: 769px;
+  --desktop: 960px;
+  --widescreen: 1152px;
+  --fullhd: 1344px;
+}
+
+@media (min-width: 321px) {
+  :root {
+    --background-color: var(--grid-overlay__bg--xs);
+    --grid-overlay__color: var(--grid-overlay__color--xs);
+    --columns: 3;
+    --container: var(--mobile);
+    --max_width: var(--mobile);
+    --media-query: 'mobile (xm)';
+  }
+}
+
+@media (min-width: 721px) {
+  :root {
+    --background-color: var(--grid-overlay__bg--sm);
+    --grid-overlay__color: var(--grid-overlay__color--sm);
+    --columns: 6;
+    --container: var(--tablet);
+    --max_width: var(--tablet);
+    --media-query: 'tablet (sm)';
+  }
+}
+
+@media (min-width: 1088px) {
+  :root {
+    --background-color: var(--grid-overlay__bg--md);
+    --grid-overlay__color: var(--grid-overlay__color--md);
+    --columns: 6;
+    --container: var(--desktop);
+    --max_width: var(--desktop);
+    --media-query: 'desktop (md)';
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --background-color: var(--grid-overlay__bg--lg);
+    --grid-overlay__color: var(--grid-overlay__color--lg);
+    --columns: 12;
+    --container: var(--widescreen);
+    --max_width: var(--widescreen);
+    --media-query: 'widescreen (lg)';
+  }
+}
+
+@media (min-width: 1472px) {
+  :root {
+    --background-color: var(--grid-overlay__bg--xl);
+    --grid-overlay__color: var(--grid-overlay__color--xl);
+    --columns: 12;
+    --container: var(--fullhd);
+    --media-query: 'fullhd (xl)';
+    --max_width: var(--fullhd);
+  }
+}
+
+:root {
+  --repeating-width: calc(100% / var(--columns));
+  --column-width: calc((100% / var(--columns)) - var(--gutter));
+  --background-width: calc(100% + var(--gutter));
+  --background-columns: repeating-linear-gradient(
+    to right,
+    var(--background-color),
+    var(--background-color) var(--column-width),
+    transparent var(--column-width),
+    transparent var(--repeating-width)
+  );
+  --background-baseline: repeating-linear-gradient(
+    to bottom,
+    var(--background-color),
+    var(--background-color) 1px,
+    transparent 1px,
+    transparent var(--baseline)
+  );
+}
+
+.u-grid-overlay {
+  position: relative;
+}
+
+.u-grid-overlay::before {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: calc(100% - (2 * var(--offset)));
+  max-width: var(--max_width);
+  min-height: 100vh;
+  content: '';
+  background-image: var(--background-columns), var(--background-baseline);
+  background-size: var(--background-width) 100%;
+  background-position: 0 var(--baseline-shift);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.u-grid-overlay::after {
+  content: var(--media-query);
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  color: var(--grid-overlay__color);
+}

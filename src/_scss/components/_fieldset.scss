@@ -1,0 +1,17 @@
+.fieldset {
+  border: none;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.fieldset__title {
+  color: inherit;
+  display: block;
+  font-family: $family-headings;
+  font-size: $size-4;
+  font-weight: $weight-light;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $primary;
+  width: 100%;
+}
