@@ -1,0 +1,43 @@
+$sidebar-background: $background--dark;
+$sidebar-width: 250px;
+
+.sidebar {
+  background-color: $sidebar-background;
+  height: 100%;
+  width: $sidebar-width;
+  -webkit-overflow-scrolling: touch;
+  transform: translateX(-$sidebar-width);
+  transition: transform 0.2s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  //z-index: 1000;
+
+  &.is-open {
+    left: 0;
+    transform: translateX(0);
+    z-index: 1001;
+    box-shadow: 0 0 40px rgba(0,0,0,0.25);
+  }
+
+  @include desktop {
+    position: relative;
+    transform: translateX(0);
+  }
+}
+
+/*
+
+
+  @include transition(transform .2s);
+
+
+
+  @include media-breakpoint-up(md) {
+    position: relative;
+    height: auto;
+    background: inherit;
+    transform: translateX(0);
+    width: 100%;
+  }
+ */

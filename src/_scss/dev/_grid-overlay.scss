@@ -21,11 +21,17 @@
   --background-color: var(--grid-overlay__bg--xs);
   --media-query: 'extra small (xs)';
 
+  --grid-overlay-offset: 0;
+  --grid-overlay-offset__xs: 0;
+  --grid-overlay-offset__md: 250px;
+
   --mobile: 720px;
   --tablet: 769px;
   --desktop: 960px;
   --widescreen: 1152px;
   --fullhd: 1344px;
+
+  --width: calc(100% - (4 * var(--offset)) - var(--grid-overlay-offset));
 }
 
 @media (min-width: 321px) {
@@ -47,6 +53,7 @@
     --container: var(--tablet);
     --max_width: var(--tablet);
     --media-query: 'tablet (sm)';
+    --width: calc(100% - (4 * var(--offset)));
   }
 }
 
@@ -54,10 +61,12 @@
   :root {
     --background-color: var(--grid-overlay__bg--md);
     --grid-overlay__color: var(--grid-overlay__color--md);
+    --grid-overlay-offset: var(--grid-overlay-offset__md);
     --columns: 6;
     --container: var(--desktop);
     --max_width: var(--desktop);
     --media-query: 'desktop (md)';
+    --width: calc(100% - (4 * var(--offset)) - var(--grid-overlay-offset));
   }
 }
 
@@ -109,11 +118,11 @@
 
 .u-grid-overlay::before {
   position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
+  top: 0; right: 0; bottom: 0; left: var(--grid-overlay-offset);
   margin-right: auto;
   margin-left: auto;
-  width: calc(100% - (2 * var(--offset)));
-  max-width: var(--max_width);
+  width: var(--width);
+  //max-width: var(--max_width);
   min-height: 100vh;
   content: '';
   background-image: var(--background-columns), var(--background-baseline);
@@ -123,6 +132,8 @@
   pointer-events: none;
 }
 
+
+
 .u-grid-overlay::after {
   content: var(--media-query);
   position: fixed;
@@ -130,4 +141,12 @@
   left: 1rem;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   color: var(--grid-overlay__color);
+}
+
+.u-bg-red {
+  background-color: rgba(255,0,0,0.25);
+}
+
+.u-bg-blue {
+  background-color: rgba(0,0,255,0.25);
 }

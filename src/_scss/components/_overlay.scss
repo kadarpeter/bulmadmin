@@ -1,0 +1,26 @@
+//
+// Overlay
+// --------------------------------------------------
+$overlay-z-index: 1000;
+
+.overlay {
+  position: fixed;
+  z-index: $overlay-z-index;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  background-color: transparentize($background--dark, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  backface-visibility: hidden;
+
+  //@include transition(opacity .3s 0s, visibility 0s .3s, transform .3s 0s);
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    //@include transition(opacity .3s 0s, visibility 0s 0s, transform .3s 0s);
+  }
+}

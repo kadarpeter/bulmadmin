@@ -1,0 +1,47 @@
+//
+// Hamburgers menü
+// --------------------------------------------------
+
+$hamburger-padding-x                       : 10px !default;
+$hamburger-padding-y                       : 10px !default;
+$hamburger-layer-width                     : 24px !default;
+$hamburger-layer-height                    : 3px !default;
+$hamburger-layer-spacing                   : 4px !default;
+$hamburger-layer-color                     : $background--light !default;
+$hamburger-layer-border-radius             : 3px !default;
+$hamburger-hover-opacity                   : 0.7 !default;
+$hamburger-hover-transition-duration       : 0.15s !default;
+$hamburger-hover-transition-timing-function: linear !default;
+
+// To use CSS filters as the hover effect instead of opacity,
+// set $hamburger-hover-use-filter as true and
+// change the value of $hamburger-hover-filter accordingly.
+$hamburger-hover-use-filter: true !default;
+$hamburger-hover-filter    : opacity(100%) !default;
+
+// Types (Remove or comment out what you don’t need)
+// ==================================================
+$hamburger-types: (
+  slider,
+) !default;
+
+@import "~hamburgers/_sass/hamburgers/hamburgers";
+
+.hamburger {
+  display: flex;
+  z-index: 1002;
+  outline: none;
+  background-color: $background--dark;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.hamburger-box {
+
+}

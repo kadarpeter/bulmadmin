@@ -4,10 +4,14 @@
   {% include _head.html %}
 
   <body>
-  
-    <div class="page-content">
-        {{ content }}
+  <div class="l-admin">
+    {% include _sidebar.html %}
+    
+    <div class="l-admin__content page-content">
+      <!--{% include _navbar.html %}-->
+      {{ content }}
     </div>
+  </div>
 
     {% include _javascripts.html %}
   </body>
