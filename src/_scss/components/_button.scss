@@ -1,0 +1,10 @@
+.button {
+  @include mobile {
+    &.is-logout {
+      border: none;
+      .button__label {
+        display: none;
+      }
+    }
+  }
+}

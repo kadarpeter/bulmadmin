@@ -1,0 +1,53 @@
+.menu {
+  height: 100vh;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.menu-label {
+  color: $menu-label-color;
+}
+
+.menu-list a {
+  color: rgba($menu-item-color, 0.85);
+  border-radius: $menu-item-radius 0 0 $menu-item-radius;
+
+  &.is-active {
+    font-weight: $weight-bold;
+    background-color: $menu-item-active-background-color;
+    color: $menu-item-active-color;
+  }
+
+  &:hover {
+    color: $menu-item-hover-color;
+    background-color: $menu-item-hover-background-color;
+  }
+}
+
+.menu__header {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+  
+  .sidebar.is-open & {
+    padding-left: 4rem;
+  }
+}
+
+.menu__content {
+  padding-left: 1.5rem;
+  padding-top: 1.5rem;
+  height: 100%;
+}
+
+.menu__footer {
+  padding: 1.5rem;
+}

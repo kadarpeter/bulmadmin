@@ -1,9 +1,12 @@
 $sidebar-background: $background--dark;
 $sidebar-width: 250px;
+$gradient-top-left: darken(saturate(adjust-hue($sidebar-background, -10deg), 10%), 10%);
+$gradient-bottom-right: lighten(saturate(adjust-hue($sidebar-background, 10deg), 5%), 5%);
 
 .sidebar {
   background-color: $sidebar-background;
-  height: 100%;
+  background-image: linear-gradient(180deg, $background-dark-gradient-top 0%, $sidebar-background 50%, $background-dark-gradient-bottom 100%);
+  height: 100vh;
   width: $sidebar-width;
   -webkit-overflow-scrolling: touch;
   transform: translateX(-$sidebar-width);
@@ -11,7 +14,6 @@ $sidebar-width: 250px;
   position: fixed;
   left: 0;
   top: 0;
-  //z-index: 1000;
 
   &.is-open {
     left: 0;

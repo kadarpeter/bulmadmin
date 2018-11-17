@@ -1,8 +1,13 @@
 @charset "utf-8";
 
+@import "~bulma/sass/utilities/initial-variables";
+
 // Custom Colors
+
 $background--light: #fcfdff;
-$background--dark:  #2f3453; //2b2e40
+$background--dark:  #2f3453;
+$background-dark-gradient-top: #343a5e;
+$background-dark-gradient-bottom: #2b2e40;
 
 
 // Update Bulma's global variables
@@ -16,15 +21,37 @@ $body-background-color: $background--light;
 //$input-border-color: transparent;
 $input-shadow: none;
 
+// Menu
+$menu-item-color: #fff;
+$menu-item-radius: 1rem;
+$menu-item-hover-color: #fff;
+$menu-item-hover-background-color: #2a2c44;
+$menu-item-active-color: #fff;
+$menu-item-active-background-color: $menu-item-hover-background-color;
+$menu-label-color: transparentize(#fff, 0.5);
+
+// Breadcrumbs
+$breadcrumb-item-color: $grey !default;
+$breadcrumb-item-hover-color: $blue !default;
+$breadcrumb-item-active-color: $grey-dark !default;
+
+$breadcrumb-item-padding-vertical: 0 !default;
+$breadcrumb-item-padding-horizontal: 0.75em !default;
+$breadcrumb-item-separator-color: $grey-lighter !default;
+
 @import "vendors";
 @import "dev/grid-overlay";
 
 // Layouts
 @import "layout/layout";
 @import "layout/page";
+@import "layout/header";
 
 // Components
 @import "components/fieldset";
 @import "components/overlay";
-@import "components/sidebar";
 @import "components/hamburgers";
+@import "components/sidebar";
+@import "components/menu";
+@import "components/breadcrumb";
+@import "components/button";
